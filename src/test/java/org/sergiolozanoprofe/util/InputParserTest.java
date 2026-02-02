@@ -10,35 +10,18 @@ class InputParserTest {
 
     @Test
     void parseInt() {
-
-        try{
-            assertEquals(2,InputParser.parseInt("2"));
-        }
-        catch (NumberFormatException ex){
-            System.out.println("ERROR");
-        }
+        assertEquals(2,InputParser.parseInt("2"));
     }
 
     @Test
     void parseIntNumeroComplejo() {
-
-        try{
             assertEquals(807,InputParser.parseInt("807"));
-        }
-        catch (NumberFormatException ex){
-            System.out.println("ERROR");
-        }
     }
 
     @Test
     void parseIntNegativo() {
-
-        try{
             assertEquals(-2,InputParser.parseInt("-2"));
-        }
-        catch (NumberFormatException ex){
-            System.out.println("ERROR");
-        }
+
     }
 
     @Test
@@ -54,11 +37,29 @@ class InputParserTest {
     }
 
     @Test
-    void parseOperation() {
+    void parseOperationAdd() {
         try {
             assertEquals(OperationType.ADD, InputParser.parseOperation("suma"));
         }catch (IllegalArgumentException e){
             System.out.println("ERROR");
         }
         }
+
+    @Test
+    void parseOperationDivide() {
+        try {
+            assertEquals(OperationType.DIVIDE, InputParser.parseOperation("/"));
+        }catch (IllegalArgumentException e){
+            System.out.println("ERROR");
+        }
+    }
+
+    @Test
+    void parseOperationLetra() {
+        try {
+            assertEquals(OperationType.DIVIDE, InputParser.parseOperation("o"));
+        }catch (IllegalArgumentException e){
+            System.out.println("ERROR");
+        }
+    }
 }
